@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Sidebar (Fixed Page)</title>
+    <style>
+        /* Main container (No scrolling page) */
+        .container {
+            display: flex;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Prevent page scrolling */
+        }
+
+        /* Scrollable Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #2a2a2a;
+            color: white;
+            padding: 20px;
+            overflow-y: auto; /* Enables sidebar scrolling */
+            height: 100vh;
+        }
+
+        /* Fixed Content */
+        .content {
+            flex: 1; /* Takes remaining space */
+            padding: 20px;
+            background: #f4f4f4;
+            overflow: hidden; /* Prevents main content from scrolling */
+        }
+
+        /* Long sidebar content for scrolling */
+        .sidebar ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+            <li>Item 8</li>
+            <li>Item 9</li>
+            <li>Item 10</li>
+            <li>Item 11</li>
+            <li>Item 12</li>
+            <li>Item 13</li>
+            <li>Item 14</li>
+            <li>Item 15</li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h1>Main Content</h1>
+        <p>This section stays fixed while the sidebar scrolls.</p>
+        <p>No page scrolling, only sidebar moves.</p>
+    </div>
+</div>
+
+</body>
+</html>
