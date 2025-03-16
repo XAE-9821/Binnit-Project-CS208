@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const images = [
-        "image_scrolls/deviant5.gif",
-        "image_scrolls/deviant7.png",
-        "image_scrolls/deviant8.gif",
-        "image_scrolls/deviant9.gif",
-        "image_scrolls/deviant10.gif",
-        "image_scrolls/deviant11.gif",
-        "image_scrolls/deviant12.gif",
-        "image_scrolls/deviant13.gif"
+        "../image_scrolls/deviant5.gif",
+        "../image_scrolls/deviant7.png",
+        "../image_scrolls/deviant8.gif",
+        "../image_scrolls/deviant9.gif",
+        "../image_scrolls/deviant10.gif",
+        "../image_scrolls/deviant11.gif",
+        "../image_scrolls/deviant12.gif",
+        "../image_scrolls/deviant13.gif"
   
     ];
 

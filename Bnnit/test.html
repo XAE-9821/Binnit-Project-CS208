@@ -3,48 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Sidebar (Fixed Page)</title>
+    <title>Multi-Step Login</title>
     <style>
-        /* Main container (No scrolling page) */
-        .container {
-            display: flex;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden; /* Prevent page scrolling */
+        .step {
+            display: none; /* Hide all steps by default */
         }
-
-        /* Scrollable Sidebar */
-        .sidebar {
-            width: 250px;
-            background: #2a2a2a;
-            color: white;
-            padding: 20px;
-            overflow-y: auto; /* Enables sidebar scrolling */
-            height: 100vh;
+        .step.active {
+            display: block; /* Show the active step */
         }
-
-        /* Fixed Content */
-        .content {
-            flex: 1; /* Takes remaining space */
-            padding: 20px;
-            background: #f4f4f4;
-            overflow: hidden; /* Prevents main content from scrolling */
-        }
-
-        /* Long sidebar content for scrolling */
-        .sidebar ul {
-            padding: 0;
-            list-style: none;
-        }
-
-        .sidebar li {
-            margin-bottom: 20px;
-            padding: 10px;
-            background: #444;
-            border-radius: 5px;
+        .button-container {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <div id="step1" class="step active">
+        <h2>Step 1: Enter Username</h2>
+        <input type="text" id="username" placeholder="Username">
+        <div class="button-container">
+            <button onclick="nextStep()">Next</button>
+        </div>
+    </div>
+
+    <div id="step2" class="step">
+        <h2>Step 2: Enter Password</h2>
+        <input type="password" id="password" placeholder="Password">
+        <div class="button-container">
+            <button onclick="prevStep()">Back</button>
+            <button onclick="nextStep()">Next</button>
+        </div>
+    </div>
+
+    <div id="step3" class="step">
+        <h2>Step 3: Confirm</h2>
+        <p>Username: <span id="confirm-username"></span></p>
+        <p>Password: <span id="confirm-password"></span></p>
+        <div class="button-container">
+            <button onclick="prevStep()">Back</button>
+            <button onclick="submitForm()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+
+                // Update confirmation step with entered data
+                if (currentStep === 3) {
+                    document.getElementById('confirm-username').textContent = document.getElementById('username').value;
+                    document.getElementById('confirm-password').textContent = document.getElementById('password').value;
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+            }
+        }
+
+        function submitForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate form submission
+            alert(`Username: ${username}\nPassword: ${password}`);
+        }
+    </script>
+</body>
+</html>>
 
 <div class="container">
     <div class="sidebar">

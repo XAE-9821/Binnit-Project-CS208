@@ -30,12 +30,26 @@
 }
 
 body {
-        background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url('../svg_icons/login_background.jpg');
+        background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('../svg_icons/login_background.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+            transparent,
+            rgba(0,0,0, 0.2));
+    pointer-events: none;
+}
+
 
 * {
     margin: 0;
@@ -104,13 +118,15 @@ body {
 
 .right-section h2{
     position: relative;
-    top: -9%;
+    top: -4%;
+    left: -38%;
     
 }
 .right-section label{
     align-self: flex-start;
     font-weight: 590;
     font-size: 14.8px;
+    
 }
 
 h2 {
@@ -139,6 +155,16 @@ input {
     cursor: pointer;
     margin-bottom: 10px;
     border-radius: 9px;
+    font-weight: 580;
+    transition: opacity 200ms ease;
+}
+
+.login-btn:hover{
+    opacity: 0.8;
+}
+
+.login-btn:active{
+    opacity: 0.6;
 }
 
 .divider {
@@ -168,11 +194,22 @@ input {
     cursor: pointer;
     margin-bottom: 10px;
     border-radius: 9px;
+    font-weight: 580;
+    transition: opacity 200ms ease;
+}
+
+.social-btn:hover {
+    opacity: 0.8;
+}
+
+.social-btn:active {
+    opacity: 0.6;
 }
 
 .signup-text {
     margin-top: 15px;
     font-size: 14px;
+    margin-right: 0;
 }
 
 .signup-text a {
@@ -206,4 +243,3 @@ input {
         padding: 20px;
     }
 }
-
