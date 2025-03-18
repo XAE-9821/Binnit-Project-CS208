@@ -188,6 +188,7 @@ input {
 }
 
 .social-btn {
+    font-weight: 580;
     width: 100%;
     padding: 10px;
     background: var(--deep-purple);
@@ -196,7 +197,6 @@ input {
     cursor: pointer;
     margin-bottom: 10px;
     border-radius: 9px;
-    font-weight: 580;
     transition: opacity 200ms ease;
 }
 
